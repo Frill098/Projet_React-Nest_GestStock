@@ -1,7 +1,14 @@
-import { Controller, Post, Body, Res, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  HttpStatus,
+  Post,
+  Res,
+} from '@nestjs/common';
 import type { Response } from 'express';
 import { AuthService } from '../Services/auth.service';
-import { LoginDto } from '../Dto/login.dto';
+import { LoginDto } from 'src/Dto/login.dto';
 
 /**
  * Controller pour l'authentification
@@ -15,7 +22,10 @@ export class AuthController {
    */
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  async login(@Body() loginDto: LoginDto, @Res({ passthrough: true }) response: Response) {
+  async login(
+    @Body() loginDto: LoginDto,
+    @Res({ passthrough: true }) response: Response,
+  ) {
     const result = await this.authService.login(loginDto);
 
     // Créer un cookie de session simple
@@ -33,7 +43,7 @@ export class AuthController {
    */
   @Post('logout')
   @HttpCode(HttpStatus.OK)
-  async logout(@Res({ passthrough: true }) response: Response) {
+  logout(@Res({ passthrough: true }) response: Response) {
     response.clearCookie('user_session');
     return { message: 'Déconnexion réussie' };
   }
