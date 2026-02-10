@@ -10,9 +10,6 @@ function Footer() {
         <p>
           © {currentYear} StockFlow. Tous droits réservés.
         </p>
-        <p className="footer-love">
-          Fait avec <Heart size={14} fill="#ef4444" color="#ef4444" /> pour une gestion optimale
-        </p>
       </div>
     </footer>
   );

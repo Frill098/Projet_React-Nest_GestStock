@@ -51,7 +51,9 @@ export const movementsAPI = {
   getAll: () => api.get('/movements'),
   getById: (id) => api.get(`/movements/${id}`),
   create: (data) => api.post('/movements', data),
-  getRecent: (limit = 10) => api.get(`/movements?limit=${limit}`),
+  getRecent: (limit = 10) => api.get('/movements/stats'), // Utiliser stats pour obtenir les mouvements récents
+  getByProduct: (productId) => api.get(`/movements/product/${productId}`),
+  getStats: () => api.get('/movements/stats'),
 };
 
 // Alertes

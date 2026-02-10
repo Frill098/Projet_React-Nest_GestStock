@@ -9,6 +9,8 @@ function Dashboard() {
   const navigate = useNavigate();
   const [stats, setStats] = useState([]);
   const [recentMovements, setRecentMovements] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
@@ -21,9 +23,12 @@ function Dashboard() {
 
   const loadStats = async () => {
     try {
-      const [productsRes, movementsRes, alertsRes] = await Promise.all([
+      setLoading(true);
+      setError(null);
+      
+      const [productsRes, statsRes, alertsRes] = await Promise.all([
         productsAPI.getAll(),
-        movementsAPI.getRecent(5),
+        movementsAPI.getStats(),
         alertsAPI.getActive(),
       ]);
 
@@ -39,7 +44,7 @@ function Dashboard() {
         { 
           icon: TrendingUp, 
           label: 'Mouvements', 
-          value: movementsRes.data.length.toString(), 
+          value: (statsRes.data.total_entrees + statsRes.data.total_sorties).toString(), 
           change: '+8%', 
           trend: 'up', 
           color: '#10b981' 
@@ -62,11 +67,50 @@ function Dashboard() {
         },
       ]);
 
-      setRecentMovements(movementsRes.data);
+      setRecentMovements(statsRes.data.mouvements_recents || []);
     } catch (error) {
       console.error('Erreur chargement stats:', error);
+      setError('Impossible de charger les données. Vérifiez que le serveur backend est démarré sur http://localhost:3000');
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="dashboard" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>⏳</div>
+          <p style={{ color: '#64748b' }}>Chargement des données...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="dashboard" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '500px', padding: '2rem', background: '#fee2e2', borderRadius: '12px' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>⚠️</div>
+          <p style={{ color: '#dc2626', fontWeight: '600', marginBottom: '1rem' }}>{error}</p>
+          <button 
+            onClick={loadStats}
+            style={{ 
+              padding: '0.75rem 1.5rem', 
+              background: '#3b82f6', 
+              color: 'white', 
+              border: 'none', 
+              borderRadius: '8px', 
+              cursor: 'pointer',
+              fontWeight: '600'
+            }}
+          >
+            Réessayer
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="dashboard">
