@@ -1,8 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .logo {
@@ -39,4 +69,22 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+/* Styles globaux pour les boutons avec icônes */
+button {
+  font-family: 'Inter', sans-serif;
+}
+
+button svg {
+  pointer-events: none;
+}
+
+.btn-primary svg,
+.btn-secondary svg,
+.btn-icon svg,
+.icon-btn svg,
+.menu-btn svg {
+  flex-shrink: 0;
 }

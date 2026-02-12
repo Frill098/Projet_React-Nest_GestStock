@@ -1,4 +1,11 @@
-import { Controller, Get, Put, Param, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Put,
+  Param,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
 import { AlerteService } from '../Services/alerte.service';
 
 /**

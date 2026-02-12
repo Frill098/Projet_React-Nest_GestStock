@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
 import { CategoryService } from '../Services/category.service';
 import { CreateCategoryDto } from '../Dto/create-category.dto';
 import { UpdateCategoryDto } from '../Dto/update-category.dto';
@@ -39,7 +49,10 @@ export class CategoryController {
    * Mettre à jour une catégorie
    */
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updateCategoryDto: UpdateCategoryDto,
+  ) {
     return await this.categoryService.update(id, updateCategoryDto);
   }
 
