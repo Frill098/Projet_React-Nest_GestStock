@@ -30,8 +30,8 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
   
-  console.log(`🚀 Application démarrée sur http://localhost:${port}`);
-  console.log(`📊 Base de données: ${process.env.DB_DATABASE}`);
+  console.log(`  Application démarrée sur http://localhost:${port}`);
+  console.log(`  Base de données: ${process.env.DB_DATABASE}`);
 }
 
 bootstrap();

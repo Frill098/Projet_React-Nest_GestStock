@@ -85,8 +85,37 @@
 
 @media (max-width: 768px) {
   .toast {
+    top: 70px;
     right: 1rem;
     left: 1rem;
     min-width: auto;
+    padding: 0.875rem 1rem;
+  }
+
+  .toast-message {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    top: 65px;
+    right: 0.75rem;
+    left: 0.75rem;
+    padding: 0.75rem 0.875rem;
+  }
+
+  .toast-message {
+    font-size: 0.8rem;
+  }
+
+  .toast-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .toast-close {
+    width: 20px;
+    height: 20px;
   }
 }

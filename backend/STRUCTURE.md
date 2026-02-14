@@ -150,7 +150,7 @@ Les alertes sont gérées automatiquement dans 3 cas:
 - Rollback automatique en cas d'erreur
 - Garantit l'intégrité des données
 
-## 📊 Endpoints par Fonctionnalité
+##   Endpoints par Fonctionnalité
 
 ### Gestion des Catégories
 - CRUD complet
@@ -206,7 +206,7 @@ PORT=3000
 - Origin: `http://localhost:5173` (frontend React)
 - Credentials: `true` (pour les cookies)
 
-## 📝 Conventions de Code
+##   Conventions de Code
 
 ### Nommage
 - **Dossiers**: Première lettre majuscule (Controllers/, Services/, Entities/)
@@ -255,7 +255,7 @@ export class XxxController {
 }
 ```
 
-## 🚀 Commandes Utiles
+##   Commandes Utiles
 
 ```bash
 # Installation

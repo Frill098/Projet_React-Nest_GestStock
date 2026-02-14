@@ -28,7 +28,7 @@ async function seed() {
 
   try {
     await dataSource.initialize();
-    console.log('✅ Connexion à la base de données établie');
+    console.log('   Connexion à la base de données établie');
 
     // Créer des utilisateurs
     const userRepository = dataSource.getRepository(User);
@@ -41,7 +41,7 @@ async function seed() {
       role: 'admin',
     });
     await userRepository.save(admin);
-    console.log('✅ Utilisateur admin créé');
+    console.log(' Utilisateur admin créé');
 
     const gestionnairePassword = await bcrypt.hash('gestionnaire123', 10);
     const gestionnaire = userRepository.create({
@@ -51,7 +51,7 @@ async function seed() {
       role: 'gestionnaire',
     });
     await userRepository.save(gestionnaire);
-    console.log('✅ Utilisateur gestionnaire créé');
+    console.log('   Utilisateur gestionnaire créé');
 
     // Créer des catégories
     const categoryRepository = dataSource.getRepository(Category);
@@ -70,7 +70,7 @@ async function seed() {
       const saved = await categoryRepository.save(category);
       savedCategories.push(saved);
     }
-    console.log('✅ Catégories créées');
+    console.log('   Catégories créées');
 
     // Créer des produits
     const productRepository = dataSource.getRepository(Product);
@@ -154,16 +154,16 @@ async function seed() {
       const product = productRepository.create(prod);
       await productRepository.save(product);
     }
-    console.log('✅ Produits créés');
+    console.log('   Produits créés');
 
-    console.log('\n🎉 Seed terminé avec succès!');
-    console.log('\n📝 Credentials de test:');
+    console.log('\n  Seed terminé avec succès!');
+    console.log('\n  Credentials de test:');
     console.log('   Admin: admin@geststock.com / admin123');
     console.log('   Gestionnaire: gestionnaire@geststock.com / gestionnaire123');
 
     await dataSource.destroy();
   } catch (error) {
-    console.error('❌ Erreur lors du seed:', error);
+    console.error('  Erreur lors du seed:', error);
     process.exit(1);
   }
 }
