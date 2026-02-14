@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Package, Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
+import { Package, Mail, Lock, ArrowRight, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
 import '../styles/Login.css';
 
@@ -12,6 +12,7 @@ function Login() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -84,15 +85,25 @@ function Login() {
               <Lock size={18} />
               Mot de passe
             </label>
-            <input
-              type="password"
-              id="mot_de_passe"
-              name="mot_de_passe"
-              value={formData.mot_de_passe}
-              onChange={handleChange}
-              placeholder="••••••••"
-              required
-            />
+            <div className="password-input-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="mot_de_passe"
+                name="mot_de_passe"
+                value={formData.mot_de_passe}
+                onChange={handleChange}
+                placeholder="••••••••"
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+                title={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
           </div>
 
           {error && (

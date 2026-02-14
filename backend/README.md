@@ -2,7 +2,7 @@
 
 Backend NestJS avec TypeORM et PostgreSQL pour l'application de gestion d'inventaire.
 
-## 🚀 Installation
+##   Installation
 
 ```bash
 npm install
@@ -123,7 +123,7 @@ backend/
 - Cookies HTTP-only pour les sessions
 - Transactions TypeORM pour l'intégrité des données
 
-## 📝 Notes
+##   Notes
 
 - `synchronize: true` est activé pour le développement (crée automatiquement les tables)
 - En production, désactiver `synchronize` et utiliser des migrations

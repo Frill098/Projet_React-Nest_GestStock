@@ -21,8 +21,32 @@
   color: #667eea;
 }
 
+/* Tablettes */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .charts-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-card h2 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-grid {
+    gap: 1rem;
+  }
+
+  .content-card h2 {
+    font-size: 1rem;
   }
 }

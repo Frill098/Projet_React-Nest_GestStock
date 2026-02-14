@@ -110,7 +110,7 @@ curl -X PUT http://localhost:3000/api/products/{id} \
 curl -X DELETE http://localhost:3000/api/products/{id}
 ```
 
-## 📊 Mouvements de Stock
+##   Mouvements de Stock
 
 ### Lister tous les mouvements
 ```bash
@@ -210,7 +210,7 @@ curl -X POST http://localhost:3000/api/users \
 curl -X DELETE http://localhost:3000/api/users/{id}
 ```
 
-## 📝 Scénarios de Test
+##   Scénarios de Test
 
 ### Scénario 1: Créer un produit et enregistrer des mouvements
 

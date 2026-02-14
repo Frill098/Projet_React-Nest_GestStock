@@ -224,19 +224,103 @@
   flex-shrink: 0;
 }
 
+/* Tablettes */
+@media (max-width: 1024px) {
+  .modal {
+    max-width: 90%;
+  }
+
+  .modal-large {
+    max-width: 95%;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal {
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
   .modal-large {
     max-width: 100%;
-    margin: 1rem;
+  }
+
+  .modal-header {
+    padding: 1.25rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .modal form,
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-actions,
+  .modal-footer {
+    padding: 1.25rem;
+    flex-direction: column;
+  }
+
+  .btn-secondary,
+  .modal-actions .btn-primary {
+    width: 100%;
   }
 
   .product-item {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1rem;
   }
 
   .product-meta {
     flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0;
+  }
+
+  .modal {
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .modal-header,
+  .modal form,
+  .modal-body,
+  .modal-actions,
+  .modal-footer {
+    padding: 1rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.125rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .product-item {
+    padding: 0.875rem;
+  }
+
+  .product-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+

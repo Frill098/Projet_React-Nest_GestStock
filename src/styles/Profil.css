@@ -164,13 +164,73 @@
 }
 
 @media (max-width: 768px) {
+  .profil-card,
+  .profil-stats {
+    padding: 1.5rem;
+  }
+
   .profil-avatar {
     flex-direction: column;
     text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .avatar-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .avatar-info h2 {
+    font-size: 1.5rem;
   }
 
   .detail-group {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .detail-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .profil-stats h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profil-card,
+  .profil-stats {
+    padding: 1.25rem;
+  }
+
+  .avatar-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .avatar-info h2 {
+    font-size: 1.375rem;
+  }
+
+  .role-badge {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .detail-content label {
+    font-size: 0.8rem;
+  }
+
+  .detail-content p,
+  .detail-input {
+    font-size: 0.9rem;
+  }
+
+  .stat-item {
+    padding: 0.875rem;
   }
 }
